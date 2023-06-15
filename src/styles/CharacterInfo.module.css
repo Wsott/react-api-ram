@@ -1,0 +1,20 @@
+.characterInfoContainer {
+    background-color: var(--color-primario);
+    border-radius: 10px;
+    display: flex;
+}
+
+.infoContainer {
+    display: inline;
+    text-align: left;
+}
+
+.imgContainer {
+    margin: 1rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

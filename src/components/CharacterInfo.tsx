@@ -1,3 +1,5 @@
+import styles from "../styles/CharacterInfo.module.css";
+
 interface CharacterFullData {
     id: number;
     image: string;
@@ -11,18 +13,18 @@ interface CharacterFullData {
 
 function CharacterInfo ( {id, image, name, status, species, type, gender, origin}: CharacterFullData) {
     return (
-        <div>
-            <div>
+        <div className={styles.characterInfoContainer}>
+            <div className={styles.imgContainer}>
                 <img src={image} alt={"Image of " + name} />
             </div>
-            <div>
-                <span><b>Id: </b>{id}</span>
-                <span><b>Name: </b>{name}</span>
-                <span><b>Status: </b>{status}</span>
-                <span><b>Species: </b>{species}</span>
-                <span><b>Type: </b>{type}</span>
-                <span><b>Gender: </b>{gender}</span>
-                <span><b>Origin: </b>{origin}</span>
+            <div className={styles.infoContainer}>
+                <p><b>Id: </b>{id}</p>
+                <p><b>Name: </b>{name}</p>
+                <p><b>Status: </b>{status}</p>
+                <p><b>Species: </b>{species}</p>
+                <p><b>Type: </b>{type}</p>
+                <p><b>Gender: </b>{gender}</p>
+                <p><b>Origin: </b>{origin}</p>
             </div>
         </div>
     );
