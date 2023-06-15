@@ -1,0 +1,31 @@
+.card {
+    background-color: var(--color-primario);
+    width: 11vw;
+    height: 40vh;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.imageContainer {
+    
+}
+
+.descriptionContainer {
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.species {
+    margin-top: 0.25rem;
+    color: rgb(70, 70, 70);
+}
+
+h3 {
+    margin: 0px;
+    font-size: 1.25rem;
+}
+
+img {
+    max-width: 150px;
+    border-radius: 10px;
+}

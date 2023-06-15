@@ -5,9 +5,9 @@ function App() {
   return (
     <>
       <CharacterCard 
-      image={''} 
-      name={''} 
-      species={''}></CharacterCard>
+      image={'https://rickandmortyapi.com/api/character/avatar/11.jpeg'} 
+      name={'Albert Einstein'} 
+      species={'Human'}></CharacterCard>
     </>
   )
 }
