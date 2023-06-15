@@ -4,6 +4,7 @@
     height: 40vh;
     padding: 1rem;
     border-radius: 10px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
 }
 
 .imageContainer {
