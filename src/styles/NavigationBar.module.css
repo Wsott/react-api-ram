@@ -1,11 +1,11 @@
 .container {
-    background-color: peru;
+    background-color: var(--color-primario);
     display: flex;
     border-radius: 10px;
     align-items: center;
     justify-items: center;
-    width: 95vw;
-    height: 50px;
+    width: 80%;
+    height: 100px;
     justify-content: space-between;
 }
 
@@ -15,19 +15,25 @@
 }
 
 .imgContainer {
-    float: left;
-    /* overflow: hidden; */
-    max-width: 100%;
-    max-height: 100%;
+    margin-left: 25px;
+    max-width: 80px;
+    /* Ancho máximo de .imgContainer */
+    height: 100%;
+    /* Altura igual a .container */
+    display: flex;
+    /* Utilizar flexbox para alinear la imagen */
+    align-items: center;
+    /* Centrar verticalmente */
 }
 
 img {
-    height: 100%;
-    width: 80px;
-    /* max-width: 100%;
-    max-height: 100%; */
+    max-height: 100%;
+    /* Altura máxima igual a .imgContainer */
+    width: auto;
+    /* Ancho ajustado automáticamente */
 }
 
 a {
     padding: 0px 2rem;
+    font-size: x-large;
 }
