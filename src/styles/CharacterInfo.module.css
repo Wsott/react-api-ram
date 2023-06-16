@@ -1,0 +1,35 @@
+.characterInfoContainer {
+    background-color: var(--color-primario);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.infoContainer {
+    margin: 1rem;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+}
+
+.imgContainer {
+    margin: 1rem;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+p {
+    margin: 0.75rem 0px;
+}
