@@ -1,6 +1,7 @@
 import NavigationBar from './components/NavigationBar'
 import LocationInfo from './components/LocationInfo'
 import CharacterInfo from './components/CharacterInfo'
+import CharacterCard from './components/CharacterCard'
 import './styles/App.css'
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
         type={'Parasite'} 
         gender={'Female'} 
         origin={'unknown'}></CharacterInfo>
+      <CharacterCard 
+      image={'https://rickandmortyapi.com/api/character/avatar/11.jpeg'} 
+      name={'Albert Einstein'} 
+      species={'Human'}></CharacterCard>
     </>
   )
 }
