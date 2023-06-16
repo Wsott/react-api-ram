@@ -1,3 +1,5 @@
+import styles from "../styles/NavigationSection.module.css";
+
 interface NavigationData {
     previous: boolean;
     currentIndex: number
@@ -6,7 +8,7 @@ interface NavigationData {
 
 function NavigationSection ( {previous, currentIndex, next}: NavigationData ) {
     return (
-        <div>
+        <div className={styles.navigationContainer}>
             <button disabled={!previous}>{"<"}</button>
             <p>{currentIndex}</p>
             <button disabled={!next}>{">"}</button>
