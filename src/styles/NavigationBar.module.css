@@ -1,11 +1,11 @@
 .container {
     background-color: var(--color-primario);
     display: flex;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     align-items: center;
     justify-items: center;
-    width: 80%;
-    height: 100px;
+    width: 100%;
+    height: 75px;
     justify-content: space-between;
 }
 
