@@ -5,6 +5,7 @@ import NavigationBar from "./NavigationBar";
 import CharacterCard from "./CharacterCard";
 import { useParams } from "react-router-dom";
 import NavigationSection from "./NavigationSection";
+import LoadingSection from "./LoadingSection";
 
 
 function CharacterSection () {
@@ -49,8 +50,9 @@ function CharacterSection () {
                                         species={current.species}></CharacterCard>
                                 )
                             })
+
                         :
-                        <h1>{"Cargando..."}</h1>
+                        <LoadingSection/>
                     }
                 </div>                
             </div>

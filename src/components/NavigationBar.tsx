@@ -1,11 +1,12 @@
 import styles from "../styles/NavigationBar.module.css";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 function NavigationBar() {
     return(
         <div className={styles.container}>
             <div className={styles.imgContainer}>
-                <img src={logo} alt="Logo de la web" />
+                <Link to={"/"}><img src={logo} alt="Logo de la web" /></Link>
             </div>
             <div className={styles.linkContainer}>
                 <a href="">Personajes</a>
