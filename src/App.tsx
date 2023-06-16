@@ -16,10 +16,10 @@ function App() {
         <Route path='/characters/:index?' element={<CharacterSection/>} />
       </Routes>
     </BrowserRouter>
-    <>
-      <LoadingSection></LoadingSection>
-      <Landing></Landing>
-    </>
+    // <>
+    //   <LoadingSection></LoadingSection>
+    //   <Landing></Landing>
+    // </>
   )
 }
 
