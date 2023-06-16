@@ -1,4 +1,20 @@
 .container {
     height: 100vh;
     background-color: var(--color-terciario);
+    overflow: hidden;
+}
+
+.mainSection {
+    max-width: 100%;
+    max-height: 70%;
+    padding: 1rem;
+    
+    overflow: auto;
+}
+
+.charactersContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
 }

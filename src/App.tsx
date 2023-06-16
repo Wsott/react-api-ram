@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/characters' element={<CharacterSection/>} />
+        <Route path='/characters/:index?' element={<CharacterSection/>} />
       </Routes>
     </BrowserRouter>
   )
