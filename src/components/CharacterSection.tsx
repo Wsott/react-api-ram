@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import stlyes from "../styles/CharacterSection.module.css";
+import footerStyle from "../styles/Footer.module.css";
 import NavigationBar from "./NavigationBar";
 import CharacterCard from "./CharacterCard";
 import { useParams } from "react-router-dom";
@@ -52,13 +53,15 @@ function CharacterSection () {
                     }
                 </div>                
             </div>
-            <div>
-                <NavigationSection 
-                    previousEnabled={previous}
-                    currentIndex={currentIndex}
-                    nextEnabled={next} 
-                    url={"/characters/"}></NavigationSection>
-            </div>
+            <footer className={footerStyle.footerContainer}>
+                <div className={footerStyle.contentContainer}>
+                    <NavigationSection 
+                        previousEnabled={previous}
+                        currentIndex={currentIndex}
+                        nextEnabled={next} 
+                        url={"/characters/"}></NavigationSection>
+                </div>
+            </footer>
         </div>
         
     );
