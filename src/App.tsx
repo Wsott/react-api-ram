@@ -2,6 +2,7 @@ import NavigationBar from './components/NavigationBar'
 import LocationInfo from './components/LocationInfo'
 import CharacterInfo from './components/CharacterInfo'
 import CharacterCard from './components/CharacterCard'
+import NavigationSection from './components/NavigationSection'
 import './styles/App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       image={'https://rickandmortyapi.com/api/character/avatar/11.jpeg'} 
       name={'Albert Einstein'} 
       species={'Human'}></CharacterCard>
+      <NavigationSection previous={false} currentIndex={1} next={true}></NavigationSection>
     </>
   )
 }
