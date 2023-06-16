@@ -1,0 +1,39 @@
+.container {
+    background-color: var(--color-primario);
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 80%;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.linkContainer {
+    box-sizing:content-box;
+    float: right;
+}
+
+.imgContainer {
+    margin-left: 25px;
+    max-width: 80px;
+    /* Ancho máximo de .imgContainer */
+    height: 100%;
+    /* Altura igual a .container */
+    display: flex;
+    /* Utilizar flexbox para alinear la imagen */
+    align-items: center;
+    /* Centrar verticalmente */
+}
+
+img {
+    max-height: 100%;
+    /* Altura máxima igual a .imgContainer */
+    width: auto;
+    /* Ancho ajustado automáticamente */
+}
+
+a {
+    padding: 0px 2rem;
+    font-size: x-large;
+}
