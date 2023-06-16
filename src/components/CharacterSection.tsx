@@ -22,6 +22,7 @@ function CharacterSection () {
     async function loadData (index: number) {
         const url = "https://rickandmortyapi.com/api/character?page=" + index;
         try {
+            setData(null);
             const response = await fetch(url);
             const json = await response.json();
             setData(json.results);
