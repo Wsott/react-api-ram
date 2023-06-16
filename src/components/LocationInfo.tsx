@@ -1,3 +1,5 @@
+import styles from "../styles/LocationInfo.module.css";
+
 interface LocationData {
     name: string;
     type: string;
@@ -7,7 +9,7 @@ interface LocationData {
 
 function LocationInfo ({name, type, dimension, creationDate}: LocationData) {
     return (
-        <div>
+        <div className={styles.containerInfo}>
             <p><b>Name: </b>{name}</p>
             <p><b>Type: </b>{type}</p>
             <p><b>Dimension: </b>{dimension}</p>
