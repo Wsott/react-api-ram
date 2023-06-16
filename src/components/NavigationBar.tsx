@@ -1,10 +1,11 @@
 import styles from "../styles/NavigationBar.module.css";
+import logo from "../assets/logo.png";
 
 function NavigationBar() {
     return(
         <div className={styles.container}>
             <div className={styles.imgContainer}>
-                <img src="src\assets\logo.png" alt="Logo de la web" />
+                <img src={logo} alt="Logo de la web" />
             </div>
             <div className={styles.linkContainer}>
                 <a href="">Personajes</a>

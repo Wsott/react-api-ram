@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 button {
     background-color: var(--color-terciario);
     border-radius: 50%;
