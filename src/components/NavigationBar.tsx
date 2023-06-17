@@ -11,7 +11,7 @@ function NavigationBar() {
             <div className={styles.linkContainer}>
                 <Link to={"/characters/"}><h3>Personajes</h3></Link>
                 <Link to={"/locations/"}><h3>Ubicaciones</h3></Link>
-                <h3>Episodios</h3>
+                <Link to={"/episodes/"}><h3>Episodios</h3></Link>
             </div>
         </div>
     );

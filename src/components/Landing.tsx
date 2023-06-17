@@ -9,7 +9,7 @@ function Landing () {
             <div className={styles.linksContainer}>
                 <Link to={"/characters"}><span>Personajes</span></Link>
                 <Link to={"/locations/"}><span>Ubicaciones</span></Link>
-                <span>Episodios</span>
+                <Link to={"/episodes/"}><span>Episodios</span></Link>
             </div>
         </div>
     );

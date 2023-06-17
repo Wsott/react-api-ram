@@ -9,6 +9,7 @@ import Landing from './components/Landing'
 import CharacterSection from './components/CharacterSection'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LocationSection from './components/LocationSection'
+import EpisodeSection from './components/EpisodeSection'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Landing/>} />
         <Route path='/location/:id' element={<LocationInfo/>}/>
         <Route path='/locations/:index?' element={<LocationSection/>}/>
+        <Route path="/episodes/:index?" element={<EpisodeSection/>}/>
       </Routes>
     </BrowserRouter>
     // <>
