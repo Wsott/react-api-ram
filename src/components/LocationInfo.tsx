@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/LocationInfo.module.css";
+import styles from "../styles/EpisodeInfo.module.css";
 import BaseTemplate from "./BaseTemplate";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingSection from "./LoadingSection";
+import CharacterCard from "./CharacterCard";
 
 interface LocationData {
     name: string;
@@ -13,7 +14,10 @@ interface LocationData {
 
 function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) {
     const [data, setData] = useState();
+    const [characters, setCharacters] = useState();
     const {id}: any = useParams();
+
+    const regex = /\/(\d+)$/;
 
     useEffect(() => {
         
@@ -28,17 +32,66 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
             
             
             const json = await response.json();
-            console.log(json)
+            //console.log(json)
             setData(json);
+
+            const charactersUrlList = getCharactersId(json.residents);
+            const charactersResponse = await fetch(charactersUrlList);
+            const charactersJson = await charactersResponse.json();
+            setCharacters(charactersJson);
+            console.log(charactersJson);
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
         }
     }
 
+    function getCharactersId (listOfCharacters) {
+        let url = "https://rickandmortyapi.com/api/character/";
+
+        listOfCharacters.forEach(actual => {
+            url += (actual.match(regex)[1] + ",");
+        });
+
+        return url;
+        //alert(url);
+    }
+
     return (
-        <BaseTemplate previous={false} index={0} next={false}>
-            <div className={styles.containerInfo}>
+        <BaseTemplate previous={false} index={0} next={false} url={""}>
+            {
+                (data && characters)?
+                <>
+                    <div className={styles.containerInfo}>
+                        <p><b>Name: </b>{data.name}</p>
+                        <p><b>Type: </b>{data.type}</p>
+                        <p><b>Dimension: </b>{data.dimension}</p>
+                        <p><b>Creation date: </b>{data.created}</p>
+                    </div>
+                    <div className={styles.mainSection}>
+                            <div className={styles.titleSection}>
+                                <h3>Residentes de esta ubicacion: </h3>
+                            </div>
+                            <div className={styles.charactersContainer}>
+                                {
+                                    characters.map((current) => {
+                                        return (
+                                            <Link to={"/character/" + current.id}>
+                                                <CharacterCard
+                                                    image={current.image}
+                                                    name={current.name}
+                                                    species={current.species}></CharacterCard>
+                                            </Link>
+                                        );
+                                    })
+                                }
+                            </div>
+                        </div>
+                </>
+                :
+                <LoadingSection/>
+            }
+            {/* <div className={styles.containerInfo}>
                 {
                     (data)?
                         <>
@@ -51,7 +104,7 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
                     <LoadingSection/>
                 }
                 
-            </div>
+            </div> */}
         </BaseTemplate>
     );
 }
