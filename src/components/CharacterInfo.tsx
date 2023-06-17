@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "../styles/CharacterInfo.module.css";
 import { useState, useEffect } from "react";
 import LoadingSection from "./LoadingSection";
@@ -17,7 +17,12 @@ interface CharacterFullData {
 
 function CharacterInfo ( /*{id, image, name, status, species, type, gender, origin}: CharacterFullData*/) {
     const [data, setData] = useState();
+    const [location, setLocation] = useState();
     const {id}: any = useParams();
+
+    const regex = /\/(\d+)$/;
+    
+
 
     useEffect(() => {
         
@@ -33,7 +38,10 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
             
             const json = await response.json();
             setData(json);
-            console.log(json)
+            const match = json.location.url.match(regex);
+            console.log(match);
+            setLocation(match[1]);
+            //console.log(json)
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
@@ -56,7 +64,9 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
                                 <p><b>Species: </b>{data.species}</p>
                                 <p><b>Type: </b>{(data.type != "")? data.type: " ¯\\_(ツ)_/¯"}</p>
                                 <p><b>Gender: </b>{data.gender}</p>
-                                <p><b>Origin: </b>{data.origin.name}</p>
+                                <Link to={"/location/" + location}>
+                                    <p><b>Origin: </b>{data.origin.name}</p>
+                                </Link>
                             </div>
                         </>
                         :
