@@ -38,7 +38,7 @@ function EpisodeSection () {
     }
 
     return (
-        <BaseTemplate previous={false} index={0} next={false} url={""}>
+        <BaseTemplate previous={previous} index={currentIndex} next={next} url={"/episodes/"}>
             <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {
