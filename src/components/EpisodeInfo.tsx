@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/LocationInfo.module.css";
+import styles from "../styles/EpisodeInfo.module.css";
 import BaseTemplate from "./BaseTemplate";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingSection from "./LoadingSection";
+import CharacterCard from "./CharacterCard";
 
 function EpisodeInfo () {
     const [data, setData] = useState();
+    const [characters, setCharacters] = useState();
     const {id}: any = useParams();
+
+    const regex = /\/(\d+)$/;
 
     useEffect(() => {
         
@@ -23,15 +27,65 @@ function EpisodeInfo () {
             const json = await response.json();
             console.log(json)
             setData(json);
+            
+            const charactersUrlList = getCharactersId(json.characters);
+            const charactersResponse = await fetch(charactersUrlList);
+            const charactersJson = await charactersResponse.json();
+            setCharacters(charactersJson);
+            console.log(charactersJson);
+            //console.log(charactersJson);
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
         }
     }
 
+    function getCharactersId (listOfCharacters) {
+        let url = "https://rickandmortyapi.com/api/character/";
+
+        listOfCharacters.forEach(actual => {
+            url += (actual.match(regex)[1] + ",");
+        });
+
+        return url;
+        //alert(url);
+    }
+
     return (
         <BaseTemplate previous={false} index={0} next={false} url={""}>
-            <div className={styles.containerInfo}>
+            {
+                (data && characters)?
+                    <>
+                        <div className={styles.containerInfo}>
+                            <p><b>Episode: </b>{data.episode}</p>
+                            <p><b>Air date: </b>{data.air_date}</p>
+                            <p><b>Name: </b>{data.name}</p>
+                        </div>
+                        <div className={styles.mainSection}>
+                            <div className={styles.titleSection}>
+                                <h3>Personajes que aparecen en este episodio: </h3>
+                            </div>
+                            <div className={styles.charactersContainer}>
+                                {
+                                    characters.map((current) => {
+                                        return (
+                                            <Link to={"/character/" + current.id}>
+                                                <CharacterCard
+                                                    image={current.image}
+                                                    name={current.name}
+                                                    species={current.species}></CharacterCard>
+                                            </Link>
+                                        );
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </>
+                :
+                    <LoadingSection></LoadingSection>
+            }
+
+            {/* <div className={styles.containerInfo}>
                 {
                     (data)?
                         <>
@@ -43,7 +97,7 @@ function EpisodeInfo () {
                     <LoadingSection/>
                 }
                 
-            </div>
+            </div> */}
         </BaseTemplate>
     );
 }

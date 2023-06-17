@@ -1,0 +1,37 @@
+.containerInfo {
+    background-color: var(--color-primario);
+    border-radius: 10px;
+    padding: 1rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.titleSection {
+    background-color: var(--color-primario);
+    border-radius: 10px;
+    padding: 1rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.mainSection {
+    max-width: 100%;
+    max-height: 70%;
+    padding: 1rem;
+
+    overflow: auto;
+}
+
+.charactersContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row-gap: 1rem;
+}
+
+p {
+    margin: 1rem 0px;
+}
