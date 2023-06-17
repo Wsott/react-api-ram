@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import styles from "../styles/CharacterInfo.module.css";
 import { useState, useEffect } from "react";
 import LoadingSection from "./LoadingSection";
+import BaseTemplate from "./BaseTemplate";
 
 interface CharacterFullData {
     id: number;
@@ -40,28 +41,31 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
     }
 
     return (
-        <div className={styles.characterInfoContainer}>
-            {
-                (data)?
-                    <>
-                        <div className={styles.imgContainer}>
-                            <img src={data.image} alt={"Image of " + data.name} />
-                        </div>
-                        <div className={styles.infoContainer}>
-                            <p><b>Id: </b>{id}</p>
-                            <p><b>Name: </b>{data.name}</p>
-                            <p><b>Status: </b>{data.status}</p>
-                            <p><b>Species: </b>{data.species}</p>
-                            <p><b>Type: </b>{(data.type != "")? data.type: " ¯\\_(ツ)_/¯"}</p>
-                            <p><b>Gender: </b>{data.gender}</p>
-                            <p><b>Origin: </b>{data.origin.name}</p>
-                        </div>
-                    </>
-                    :
-                    <LoadingSection/>
-            }
-            
-        </div>
+        <BaseTemplate previous={false} index={0} next={false}>
+            <div className={styles.characterInfoContainer}>
+                {
+                    (data)?
+                        <>
+                            <div className={styles.imgContainer}>
+                                <img src={data.image} alt={"Image of " + data.name} />
+                            </div>
+                            <div className={styles.infoContainer}>
+                                <p><b>Id: </b>{id}</p>
+                                <p><b>Name: </b>{data.name}</p>
+                                <p><b>Status: </b>{data.status}</p>
+                                <p><b>Species: </b>{data.species}</p>
+                                <p><b>Type: </b>{(data.type != "")? data.type: " ¯\\_(ツ)_/¯"}</p>
+                                <p><b>Gender: </b>{data.gender}</p>
+                                <p><b>Origin: </b>{data.origin.name}</p>
+                            </div>
+                        </>
+                        :
+                        <LoadingSection/>
+                }
+                
+            </div>
+        </BaseTemplate>
+        
     );
 }
 

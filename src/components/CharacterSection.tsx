@@ -6,6 +6,8 @@ import CharacterCard from "./CharacterCard";
 import { Link, useParams } from "react-router-dom";
 import NavigationSection from "./NavigationSection";
 import LoadingSection from "./LoadingSection";
+import BaseTemplate from "./BaseTemplate";
+import Footer from "./Footer";
 
 
 function CharacterSection () {
@@ -40,40 +42,43 @@ function CharacterSection () {
     }
 
     return (
-        <div className={stlyes.container}>
-            <NavigationBar></NavigationBar>
-            <div className={stlyes.mainSection}>
-                <div className={stlyes.charactersContainer}>
-                    {
-                        (data)?
-                            data.map((current) => {
-                                return (
-                                    <Link style={linkStyleInline} to={"/character/" + current.id}>
-                                        <CharacterCard 
-                                            image={current.image} 
-                                            name={current.name} 
-                                            species={current.species}></CharacterCard>
-                                    </Link>
-                                )
-                            })
+        <BaseTemplate previous={previous} index={currentIndex} next={next} >
+            {/* <div className={stlyes.container}> */}
+            {/* <NavigationBar></NavigationBar> */}
+            {/* <div className={stlyes.mainSection}> */}
+            <div className={stlyes.charactersContainer}>
+                {(data) ?
+                    data.map((current) => {
+                        return (
+                            <Link style={linkStyleInline} to={"/character/" + current.id}>
+                                <CharacterCard
+                                    image={current.image}
+                                    name={current.name}
+                                    species={current.species}></CharacterCard>
+                            </Link>
+                        );
+                    })
 
-                        :
-                        <LoadingSection/>
-                    }
-                </div>                
+                    :
+                    <LoadingSection />}
             </div>
-            <footer className={footerStyle.footerContainer}>
-                <div className={footerStyle.contentContainer}>
-                    <NavigationSection 
-                        previousEnabled={previous}
-                        currentIndex={currentIndex}
-                        nextEnabled={next} 
-                        url={"/characters/"}></NavigationSection>
-                </div>
-            </footer>
-        </div>
-        
+            {/* </div> */}
+
+            {/* </div> */}
+        </BaseTemplate>
     );
 }
 
 export default CharacterSection;
+
+
+
+        // <footer className={footerStyle.footerContainer}>
+        //     <div className={footerStyle.contentContainer}>
+        //         <NavigationSection
+        //             previousEnabled={previous}
+        //             currentIndex={currentIndex}
+        //             nextEnabled={next}
+        //             url={"/characters/"}></NavigationSection>
+        //     </div>
+        // </footer></>

@@ -9,9 +9,9 @@ function NavigationBar() {
                 <Link to={"/"}><img src={logo} alt="Logo de la web" /></Link>
             </div>
             <div className={styles.linkContainer}>
-                <a href="">Personajes</a>
-                <a href="">Ubicaciones</a>
-                <a href="">Episodios</a>
+                <Link to={"/characters/"}><h3>Personajes</h3></Link>
+                <h3>Ubicaciones</h3>
+                <h3>Episodios</h3>
             </div>
         </div>
     );
