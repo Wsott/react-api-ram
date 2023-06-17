@@ -10,7 +10,7 @@ function NavigationBar() {
             </div>
             <div className={styles.linkContainer}>
                 <Link to={"/characters/"}><h3>Personajes</h3></Link>
-                <h3>Ubicaciones</h3>
+                <Link to={"/location/"}><h3>Ubicaciones</h3></Link>
                 <h3>Episodios</h3>
             </div>
         </div>

@@ -8,6 +8,7 @@ import LoadingSection from './components/LoadingSection'
 import Landing from './components/Landing'
 import CharacterSection from './components/CharacterSection'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LocationSection from './components/LocationSection'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/character/:id' element={<CharacterInfo/>} />
         <Route path='/' element={<Landing/>} />
         <Route path='/location/:id' element={<LocationInfo/>}/>
+        <Route path='/location/' element={<LocationSection/>}/>
       </Routes>
     </BrowserRouter>
     // <>
