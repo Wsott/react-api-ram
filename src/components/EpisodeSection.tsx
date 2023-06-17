@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import BaseTemplate from "./BaseTemplate";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import stlyes from "../styles/CharacterSection.module.css";
+import EpisodeCard from "./EpisodeCard";
+import LoadingSection from "./LoadingSection";
 
 function EpisodeSection () {
     const [data, setData] = useState();
@@ -27,6 +30,7 @@ function EpisodeSection () {
             setData(json.results);
             setNext(json.info.next != null);
             setPrevious(json.info.prev != null);
+            console.log(json.results[0].name);
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
@@ -35,7 +39,21 @@ function EpisodeSection () {
 
     return (
         <BaseTemplate previous={false} index={0} next={false} url={""}>
-            <></>
+            <div className={stlyes.charactersContainer}>
+                {(data) ?
+                    data.map((current) => {
+                        return (
+                            <Link style={linkStyleInline} to={"/episode/" + current.id}>
+                                <EpisodeCard 
+                                    name={current.name} 
+                                    episode={current.episode}></EpisodeCard>
+                            </Link>
+                        );
+                    })
+
+                    :
+                    <LoadingSection />}
+            </div>
         </BaseTemplate>
     )
 }
