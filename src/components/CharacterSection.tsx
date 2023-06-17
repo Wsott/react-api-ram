@@ -3,7 +3,7 @@ import stlyes from "../styles/CharacterSection.module.css";
 import footerStyle from "../styles/Footer.module.css";
 import NavigationBar from "./NavigationBar";
 import CharacterCard from "./CharacterCard";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import NavigationSection from "./NavigationSection";
 import LoadingSection from "./LoadingSection";
 
@@ -14,6 +14,10 @@ function CharacterSection () {
     const [previous, setPrevious] = useState(false);
     const {index} = useParams();
     const currentIndex: number = Number(index) || 1;
+
+    const linkStyleInline = {
+        padding: "0px"
+    }
 
     useEffect(() => {
         loadData(currentIndex);
@@ -44,10 +48,12 @@ function CharacterSection () {
                         (data)?
                             data.map((current) => {
                                 return (
-                                    <CharacterCard 
-                                        image={current.image} 
-                                        name={current.name} 
-                                        species={current.species}></CharacterCard>
+                                    <Link style={linkStyleInline} to={"/character/" + current.id}>
+                                        <CharacterCard 
+                                            image={current.image} 
+                                            name={current.name} 
+                                            species={current.species}></CharacterCard>
+                                    </Link>
                                 )
                             })
 

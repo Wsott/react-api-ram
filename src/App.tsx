@@ -14,6 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/characters/:index?' element={<CharacterSection/>} />
+        <Route path='/character/:id' element={<CharacterInfo/>} />
         <Route path='/' element={<Landing/>} />
       </Routes>
     </BrowserRouter>
