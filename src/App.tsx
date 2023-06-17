@@ -18,7 +18,7 @@ function App() {
         <Route path='/character/:id' element={<CharacterInfo/>} />
         <Route path='/' element={<Landing/>} />
         <Route path='/location/:id' element={<LocationInfo/>}/>
-        <Route path='/location/' element={<LocationSection/>}/>
+        <Route path='/locations/:index?' element={<LocationSection/>}/>
       </Routes>
     </BrowserRouter>
     // <>

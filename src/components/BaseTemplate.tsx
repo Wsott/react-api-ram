@@ -9,6 +9,7 @@ interface ChildrenComponents {
     previous: boolean;
     index: number;
     next: boolean;
+    url: string;
 }
 
 interface NavigationData {
@@ -17,7 +18,7 @@ interface NavigationData {
     next: boolean;
 }
 
-function BaseTemplate ( {children, previous, index, next}: ChildrenComponents) {
+function BaseTemplate ( {children, previous, index, next, url}: ChildrenComponents) {
     return (
         <div className={stlyes.container}>
             <NavigationBar></NavigationBar>
@@ -30,7 +31,7 @@ function BaseTemplate ( {children, previous, index, next}: ChildrenComponents) {
                     previousEnabled={previous}
                     currentIndex={index}
                     nextEnabled={next}
-                    url={"/characters/"}></NavigationSection>
+                    url={url}></NavigationSection>
             </div>
         </footer>
         </div>

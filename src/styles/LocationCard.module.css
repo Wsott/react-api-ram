@@ -1,0 +1,26 @@
+.card {
+    background-color: var(--color-primario);
+    width: 11vw;
+    height: 40vh;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.imageContainer {}
+
+.descriptionContainer {
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.species {
+    margin-top: 0.25rem;
+    color: rgb(70, 70, 70);
+}
+
+.text {
+    padding: 1rem 0px;
+    margin: 0px;
+    font-size: 1.25rem;
+}

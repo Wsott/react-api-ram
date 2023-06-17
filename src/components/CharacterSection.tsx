@@ -42,7 +42,7 @@ function CharacterSection () {
     }
 
     return (
-        <BaseTemplate previous={previous} index={currentIndex} next={next} >
+        <BaseTemplate previous={previous} index={currentIndex} next={next} url={"/characters/"} >
             {/* <div className={stlyes.container}> */}
             {/* <NavigationBar></NavigationBar> */}
             {/* <div className={stlyes.mainSection}> */}
