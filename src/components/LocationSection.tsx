@@ -4,6 +4,7 @@ import BaseTemplate from "./BaseTemplate";
 import stlyes from "../styles/CharacterSection.module.css";
 import CharacterCard from "./CharacterCard";
 import LoadingSection from "./LoadingSection";
+import LocationCard from "./LocationCard";
 
 function LocationSection () {
     const [data, setData] = useState();
@@ -42,11 +43,11 @@ function LocationSection () {
                 {(data) ?
                     data.map((current) => {
                         return (
-                            <Link style={linkStyleInline} to={"/character/" + current.id}>
-                                <CharacterCard
-                                    image={current.image}
+                            <Link style={linkStyleInline} to={"/location/" + current.id}>
+                                <LocationCard
                                     name={current.name}
-                                    species={current.species}></CharacterCard>
+                                    type={current.type}
+                                    dimension={current.dimension}></LocationCard>
                             </Link>
                         );
                     })
