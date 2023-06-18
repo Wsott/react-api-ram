@@ -26,7 +26,7 @@ h3 {
     font-size: 1.25rem;
 }
 
-img {
+.cardImage {
     max-width: 150px;
     border-radius: 10px;
 }

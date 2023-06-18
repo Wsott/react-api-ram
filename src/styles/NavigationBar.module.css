@@ -27,10 +27,10 @@
     /* Centrar verticalmente */
 }
 
-img {
+.navigationBarImage {
     max-height: 100%;
     /* Altura máxima igual a .imgContainer */
-    width: auto;
+    width: 200%;
     /* Ancho ajustado automáticamente */
 }
 

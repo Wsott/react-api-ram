@@ -74,16 +74,21 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
                             </div>
                             <div className={styles.charactersContainer}>
                                 {
-                                    characters.map((current) => {
-                                        return (
-                                            <Link to={"/character/" + current.id}>
-                                                <CharacterCard
-                                                    image={current.image}
-                                                    name={current.name}
-                                                    species={current.species}></CharacterCard>
-                                            </Link>
-                                        );
-                                    })
+                                    (characters.length > 0)?
+                                        characters.map((current) => {
+                                            return (
+                                                <Link to={"/character/" + current.id}>
+                                                    <CharacterCard
+                                                        image={current.image}
+                                                        name={current.name}
+                                                        species={current.species}></CharacterCard>
+                                                </Link>
+                                            );
+                                        })
+                                    :
+                                        <div className={styles.noCharacters}>
+                                            <p>No hay personajes que sean de este lugar.</p>
+                                        </div>
                                 }
                             </div>
                         </div>

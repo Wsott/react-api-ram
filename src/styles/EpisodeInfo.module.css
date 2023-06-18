@@ -32,6 +32,18 @@
     grid-row-gap: 1rem;
 }
 
+.noCharacters {
+    grid-column: 1 / -1;
+    background-color: var(--color-primario);
+    border-radius: 10px;
+    height: 17vh;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center;
+    align-content: center; */
+    display: flex;
+}
+
 p {
     margin: 1rem 0px;
 }

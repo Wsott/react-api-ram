@@ -10,7 +10,7 @@ function CharacterCard ( {image, name, species}: CharacterData) {
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
-                <img src={image} alt={"Picture of " + name} />
+                <img className={styles.cardImage} src={image} alt={"Picture of " + name} />
             </div>
             <div className={styles.descriptionContainer}>
                 <h3>{name}</h3>

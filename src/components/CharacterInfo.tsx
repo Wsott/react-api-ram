@@ -55,7 +55,7 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
                     (data)?
                         <>
                             <div className={styles.imgContainer}>
-                                <img src={data.image} alt={"Image of " + data.name} />
+                                <img className={styles.characterInfoImage} src={data.image} alt={"Image of " + data.name} />
                             </div>
                             <div className={styles.infoContainer}>
                                 <p><b>Id: </b>{id}</p>

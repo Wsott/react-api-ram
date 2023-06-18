@@ -19,8 +19,8 @@
     margin-bottom: 5rem;
 }
 
-img {
-    min-width: 50%;
+.mainLogo {
+    width: 50%;
 }
 
 span {
