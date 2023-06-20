@@ -5,6 +5,14 @@
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px) translateX(-10px);
+    box-shadow: 15px 15px 14px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 8px rgb(255, 0, 0, 0.25);
+    color: #EB455F;
 }
 
 .imageContainer {
@@ -21,7 +29,7 @@
     color: rgb(70, 70, 70);
 }
 
-h3 {
+.characterName {
     margin: 0px;
     font-size: 1.25rem;
 }

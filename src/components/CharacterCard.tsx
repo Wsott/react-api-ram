@@ -13,7 +13,7 @@ function CharacterCard ( {image, name, species}: CharacterData) {
                 <img className={styles.cardImage} src={image} alt={"Picture of " + name} />
             </div>
             <div className={styles.descriptionContainer}>
-                <h3>{name}</h3>
+                <h3 className={styles.characterName}>{name}</h3>
                 <h3 className={styles.species}>{species}</h3>
             </div>
         </div>
