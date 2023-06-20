@@ -52,9 +52,9 @@ function EpisodeInfo () {
                 (data && characters)?
                     <>
                         <div className={styles.containerInfo}>
-                            <p className={styles.episodTextInfo}><b>Episode: </b>{data.episode}</p>
-                            <p className={styles.episodTextInfo}><b>Air date: </b>{data.air_date}</p>
-                            <p className={styles.episodTextInfo}><b>Name: </b>{data.name}</p>
+                            <p className={styles.episodTextInfo}><b>Episodio: </b>{data.episode}</p>
+                            <p className={styles.episodTextInfo}><b>Fecha de emision: </b>{data.air_date}</p>
+                            <p className={styles.episodTextInfo}><b>Nombre: </b>{data.name}</p>
                         </div>
                         <div className={styles.mainSection}>
                             <div className={styles.titleSection}>

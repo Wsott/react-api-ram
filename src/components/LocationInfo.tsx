@@ -53,10 +53,10 @@ function LocationInfo () {
                 (data && characters)?
                 <>
                     <div className={styles.containerInfo}>
-                        <p className={styles.locationTextInfo}><b>Name: </b>{data.name}</p>
-                        <p className={styles.locationTextInfo}><b>Type: </b>{data.type}</p>
+                        <p className={styles.locationTextInfo}><b>Nombre: </b>{data.name}</p>
+                        <p className={styles.locationTextInfo}><b>Tipo: </b>{data.type}</p>
                         <p className={styles.locationTextInfo}><b>Dimension: </b>{data.dimension}</p>
-                        <p className={styles.locationTextInfo}><b>Creation date: </b>{data.created}</p>
+                        <p className={styles.locationTextInfo}><b>Fecha de creacion: </b>{data.created}</p>
                     </div>
                     <div className={styles.mainSection}>
                             <div className={styles.titleSection}>
