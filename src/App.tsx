@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LocationSection from './components/LocationSection'
 import EpisodeSection from './components/EpisodeSection'
 import EpisodeInfo from './components/EpisodeInfo'
-import ErrorSection from './components/ErrorSection'
 import InvalidURL from './components/404'
 
 function App() {
