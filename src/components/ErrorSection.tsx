@@ -12,7 +12,7 @@ function ErrorSection ( {URL}: errorSectionData ) {
             <h1 className={styles.title}>Error 404</h1>
             <h2 className={styles.ascii}>¯\_(ツ)_/¯</h2>
             <p>La pagina que estas buscando no existe; es peligroso seguir adelante 
-                <Link to={URL}> toma esto</Link>
+                <Link to={URL}><b> USA ESTO</b></Link>
             </p>
         </div>
     );
