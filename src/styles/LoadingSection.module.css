@@ -1,16 +1,18 @@
 .loadingContainer {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: baseline;
+    justify-content: center;
+    height: 70vh;
     grid-column: 1 / -1;
 }
 
 .loadingImage {
-    max-width: 25%;
-    max-height: 25%;
+    max-width: 50%;
+    max-height: 50%;
 }
 
 h1 {
     padding: 2rem;
+    font-size: 4rem;
 }
