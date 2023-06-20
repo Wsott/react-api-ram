@@ -8,12 +8,14 @@ import NavigationSection from "./NavigationSection";
 import LoadingSection from "./LoadingSection";
 import BaseTemplate from "./BaseTemplate";
 import Footer from "./Footer";
+import ErrorSection from "./ErrorSection";
 
 
 function CharacterSection () {
     const [data, setData] = useState();
     const [next, setNext] = useState(false);
     const [previous, setPrevious] = useState(false);
+    const [error, setError] = useState(false);
     const {index} = useParams();
     const currentIndex: number = Number(index) || 1;
 
@@ -37,6 +39,7 @@ function CharacterSection () {
             setPrevious(json.info.prev != null);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -60,7 +63,10 @@ function CharacterSection () {
                     })
 
                     :
-                    <LoadingSection />}
+                    (error)?
+                        <ErrorSection/>
+                    :
+                        <LoadingSection />}
             </div>
             {/* </div> */}
 
