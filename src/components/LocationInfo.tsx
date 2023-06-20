@@ -58,15 +58,15 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
     }
 
     return (
-        <BaseTemplate previous={false} index={0} next={false} url={""}>
+        <BaseTemplate requiresFooter={false}>
             {
                 (data && characters)?
                 <>
                     <div className={styles.containerInfo}>
-                        <p><b>Name: </b>{data.name}</p>
-                        <p><b>Type: </b>{data.type}</p>
-                        <p><b>Dimension: </b>{data.dimension}</p>
-                        <p><b>Creation date: </b>{data.created}</p>
+                        <p className={styles.locationTextInfo}><b>Name: </b>{data.name}</p>
+                        <p className={styles.locationTextInfo}><b>Type: </b>{data.type}</p>
+                        <p className={styles.locationTextInfo}><b>Dimension: </b>{data.dimension}</p>
+                        <p className={styles.locationTextInfo}><b>Creation date: </b>{data.created}</p>
                     </div>
                     <div className={styles.mainSection}>
                             <div className={styles.titleSection}>
@@ -87,7 +87,7 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
                                         })
                                     :
                                         <div className={styles.noCharacters}>
-                                            <p>No hay personajes que sean de este lugar.</p>
+                                            <h3 className={styles.locationTextInfo}>No hay personajes que sean de este lugar.</h3>
                                         </div>
                                 }
                             </div>

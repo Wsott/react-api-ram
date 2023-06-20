@@ -7,6 +7,10 @@
     text-align: left;
 }
 
-p {
+.locationTextInfo {
     margin: 1rem 0px;
 }
+
+/* p {
+    margin: 1rem 0px;
+} */

@@ -12,7 +12,12 @@
     max-height: 50%;
 }
 
-h1 {
+.loadingMessage {
     padding: 2rem;
     font-size: 4rem;
 }
+
+/* h1 {
+    padding: 2rem;
+    font-size: 4rem;
+} */

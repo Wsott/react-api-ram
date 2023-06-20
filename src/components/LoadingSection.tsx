@@ -5,7 +5,7 @@ function LoadingSection () {
     return (
         <div className={styles.loadingContainer}>
             <img className={styles.loadingImage} src={loading} alt={"Loading..."} />
-            <h1>Loading...</h1>
+            <h1 className={styles.loadingMessage}>Cargando...</h1>
         </div>
     );
 }
