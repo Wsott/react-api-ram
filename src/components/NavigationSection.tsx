@@ -11,7 +11,6 @@ interface NavigationData {
 function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: NavigationData ) {
     return (
         <div className={styles.navigationContainer}>
-            {/*  */}
             {
                 (previousEnabled)?
                     <Link to={url + (currentIndex - 1)}>
@@ -27,10 +26,7 @@ function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: 
                     </Link>
 
             }
-            
             <p className={styles.navigationIndex}>{currentIndex}</p>
-            {/* <button disabled={!next}>{">"}</button> */}
-
             {
                 (nextEnabled)?
                     <Link to={url + (currentIndex + 1)}>
@@ -45,10 +41,8 @@ function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: 
                         </button>
                     </Link>
             }
-
-            
         </div>
     );
 }
-{/* <Link to={`/page/${nextPageIndex}`}>Ir a la siguiente página</Link> */}
+
 export default NavigationSection;

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BaseTemplate from "./BaseTemplate";
 import stlyes from "../styles/CharacterSection.module.css";
-import CharacterCard from "./CharacterCard";
 import LoadingSection from "./LoadingSection";
 import LocationCard from "./LocationCard";
 import ErrorSection from "./ErrorSection";
@@ -21,7 +20,6 @@ function LocationSection () {
 
     useEffect(() => {
         loadData(currentIndex);
-        // alert("Next: " + next + " || Previous: " + previous);
     }, [currentIndex])
 
     async function loadData (index: number) {

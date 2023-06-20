@@ -1,6 +1,5 @@
 .loadingContainer {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     height: 70vh;
@@ -16,8 +15,3 @@
     padding: 2rem;
     font-size: 4rem;
 }
-
-/* h1 {
-    padding: 2rem;
-    font-size: 4rem;
-} */

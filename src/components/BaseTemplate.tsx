@@ -14,12 +14,6 @@ interface ChildrenComponents {
     requiresFooter: boolean;
 }
 
-interface NavigationData {
-    previous: boolean;
-    index: number;
-    next: boolean;
-}
-
 function BaseTemplate ( {children, previous, index, next, url, selectedOption, requiresFooter = true}: ChildrenComponents) {
     return (
         <div className={stlyes.container}>

@@ -5,18 +5,7 @@ import LoadingSection from "./LoadingSection";
 import BaseTemplate from "./BaseTemplate";
 import EpisodeCard from "./EpisodeCard";
 
-interface CharacterFullData {
-    id: number;
-    image: string;
-    name: string;
-    status: string;
-    species: string;
-    type: string;
-    gender: string;
-    origin: string;
-}
-
-function CharacterInfo ( /*{id, image, name, status, species, type, gender, origin}: CharacterFullData*/) {
+function CharacterInfo () {
     const [data, setData] = useState();
     const [location, setLocation] = useState();
     const [episodes, setEpisodes] = useState();
@@ -29,7 +18,6 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
     useEffect(() => {
         
         loadData(id);
-        // alert("Next: " + next + " || Previous: " + previous);
     }, [])
 
     async function loadData (id: number) {
@@ -41,15 +29,12 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
             const json = await response.json();
             setData(json);
             const match = json.location.url.match(regex);
-            console.log(match);
             setLocation(match[1]);
-            //console.log(json)
 
             const episodesUrlList = getEpisodesId(json.episode);
             const episodesResponse = await fetch(episodesUrlList);
             const episodesJson = await episodesResponse.json();
             setEpisodes(episodesJson);
-            console.log(episodesJson);
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
@@ -64,7 +49,6 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
         });
 
         return url;
-        //alert(url);
     }
 
     return (
@@ -87,9 +71,6 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
                                         <b>Origen: </b>
                                             <Link to={"/location/" + location}>{data.origin.name}</Link>
                                     </p>
-                                    {/* <Link to={"/location/" + location}>
-                                        <p><b>Origen: </b>{data.origin.name}</p>
-                                    </Link> */}
                                 </div>
                             </div>
 
@@ -121,43 +102,10 @@ function CharacterInfo ( /*{id, image, name, status, species, type, gender, orig
                         </>
                         :
                         <LoadingSection/>
-                }
-                
-            {/* </div> */}
+                }          
         </BaseTemplate>
         
     );
 }
 
 export default CharacterInfo;
-
-/*
-
-
-<div className={styles.mainSection}>
-    <div className={styles.titleSection}>
-        <h3>Residentes de esta ubicacion: </h3>
-    </div>
-    <div className={styles.charactersContainer}>
-    {
-        (episodes.length > 0)?
-            episodes.map((current) => {
-                return (
-                    <div className={styles.gridItem}>
-                        <Link to={"/character/" + current.id}>
-                            <EpisodeCard 
-                            name={current.name} 
-                            episode={current.episode}></EpisodeCard>
-                        </Link>
-                    </div>
-                );
-            })
-        :
-            <div className={styles.noCharacters}>
-                <h3 className={styles.locationTextInfo}>Este personaje no aparece en ningun episodio.</h3>
-            </div>
-        }
-    </div>
-</div>
-
-*/

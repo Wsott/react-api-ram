@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import stlyes from "../styles/CharacterSection.module.css";
-import footerStyle from "../styles/Footer.module.css";
-import NavigationBar from "./NavigationBar";
 import CharacterCard from "./CharacterCard";
 import { Link, useParams } from "react-router-dom";
-import NavigationSection from "./NavigationSection";
 import LoadingSection from "./LoadingSection";
 import BaseTemplate from "./BaseTemplate";
-import Footer from "./Footer";
 import ErrorSection from "./ErrorSection";
 
 
@@ -25,7 +21,6 @@ function CharacterSection () {
 
     useEffect(() => {
         loadData(currentIndex);
-        // alert("Next: " + next + " || Previous: " + previous);
     }, [currentIndex])
 
     async function loadData (index: number) {
@@ -51,9 +46,6 @@ function CharacterSection () {
         next={next} 
         url={"/characters/"} 
         selectedOption={"Personajes"} >
-            {/* <div className={stlyes.container}> */}
-            {/* <NavigationBar></NavigationBar> */}
-            {/* <div className={stlyes.mainSection}> */}
             <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {
@@ -75,23 +67,8 @@ function CharacterSection () {
                             <LoadingSection />
                     }
             </div>
-            {/* </div> */}
-
-            {/* </div> */}
         </BaseTemplate>
     );
 }
 
 export default CharacterSection;
-
-
-
-        // <footer className={footerStyle.footerContainer}>
-        //     <div className={footerStyle.contentContainer}>
-        //         <NavigationSection
-        //             previousEnabled={previous}
-        //             currentIndex={currentIndex}
-        //             nextEnabled={next}
-        //             url={"/characters/"}></NavigationSection>
-        //     </div>
-        // </footer></>

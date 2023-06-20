@@ -13,27 +13,20 @@ function EpisodeInfo () {
     const regex = /\/(\d+)$/;
 
     useEffect(() => {
-        
         loadData(id);
-        // alert("Next: " + next + " || Previous: " + previous);
     }, [])
 
     async function loadData (id: number) {
         const url = "https://rickandmortyapi.com/api/episode/" + id;
         try {
             const response = await fetch(url);
-            
-            
             const json = await response.json();
-            console.log(json)
             setData(json);
             
             const charactersUrlList = getCharactersId(json.characters);
             const charactersResponse = await fetch(charactersUrlList);
             const charactersJson = await charactersResponse.json();
             setCharacters(charactersJson);
-            console.log(charactersJson);
-            //console.log(charactersJson);
         }
         catch (error) {
             console.log("Error en obtener los datos: " + error);
@@ -48,7 +41,6 @@ function EpisodeInfo () {
         });
 
         return url;
-        //alert(url);
     }
 
     return (
@@ -86,20 +78,6 @@ function EpisodeInfo () {
                 :
                     <LoadingSection></LoadingSection>
             }
-
-            {/* <div className={styles.containerInfo}>
-                {
-                    (data)?
-                        <>
-                            <p><b>Episode: </b>{data.episode}</p>
-                            <p><b>Air date: </b>{data.air_date}</p>
-                            <p><b>Name: </b>{data.name}</p>
-                        </>
-                    :
-                    <LoadingSection/>
-                }
-                
-            </div> */}
         </BaseTemplate>
     );
 }
