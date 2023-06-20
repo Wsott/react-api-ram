@@ -84,7 +84,7 @@ function CharacterInfo () {
                                         episodes.map((current) => {
                                             return (
                                                 <div className={styles.gridItem}>
-                                                    <Link to={"/character/" + current.id}>
+                                                    <Link to={"/episode/" + current.id}>
                                                         <EpisodeCard 
                                                         name={current.name} 
                                                         episode={current.episode}></EpisodeCard>
