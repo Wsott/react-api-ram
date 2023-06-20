@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import LoadingSection from "./LoadingSection";
 import BaseTemplate from "./BaseTemplate";
 import EpisodeCard from "./EpisodeCard";
+import ErrorSection from "./ErrorSection";
 
 function CharacterInfo () {
     const [data, setData] = useState();
     const [location, setLocation] = useState();
     const [episodes, setEpisodes] = useState();
+    const [error, setError] = useState(false);
     const {id}: any = useParams();
 
     const regex = /\/(\d+)$/;
@@ -37,6 +39,7 @@ function CharacterInfo () {
             setEpisodes(episodesJson);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -101,7 +104,10 @@ function CharacterInfo () {
                             </div>
                         </>
                         :
-                        <LoadingSection/>
+                            (error)?
+                                <ErrorSection URL={"/characters/"}/>
+                            :
+                                <LoadingSection/>
                 }          
         </BaseTemplate>
         

@@ -4,10 +4,12 @@ import BaseTemplate from "./BaseTemplate";
 import { Link, useParams } from "react-router-dom";
 import LoadingSection from "./LoadingSection";
 import CharacterCard from "./CharacterCard";
+import ErrorSection from "./ErrorSection";
 
 function EpisodeInfo () {
     const [data, setData] = useState();
     const [characters, setCharacters] = useState();
+    const [error, setError] = useState(false);
     const {id}: any = useParams();
 
     const regex = /\/(\d+)$/;
@@ -29,6 +31,7 @@ function EpisodeInfo () {
             setCharacters(charactersJson);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -76,7 +79,10 @@ function EpisodeInfo () {
                         </div>
                     </>
                 :
-                    <LoadingSection></LoadingSection>
+                    (error)?
+                        <ErrorSection URL={"/episodes/"}/>
+                    :
+                        <LoadingSection/>
             }
         </BaseTemplate>
     );

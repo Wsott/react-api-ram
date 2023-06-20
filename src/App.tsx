@@ -7,18 +7,25 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LocationSection from './components/LocationSection'
 import EpisodeSection from './components/EpisodeSection'
 import EpisodeInfo from './components/EpisodeInfo'
+import ErrorSection from './components/ErrorSection'
+import InvalidURL from './components/404'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Landing/>} />
+
         <Route path='/characters/:index?' element={<CharacterSection/>} />
         <Route path='/character/:id' element={<CharacterInfo/>} />
-        <Route path='/' element={<Landing/>} />
-        <Route path='/location/:id' element={<LocationInfo/>}/>
+
         <Route path='/locations/:index?' element={<LocationSection/>}/>
+        <Route path='/location/:id' element={<LocationInfo/>}/>
+
         <Route path="/episodes/:index?" element={<EpisodeSection/>}/>
         <Route path="/episode/:id" element={<EpisodeInfo/>}/>
+
+        <Route path='*' element={<InvalidURL/>}/>
       </Routes>
     </BrowserRouter>
   )

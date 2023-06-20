@@ -4,10 +4,12 @@ import BaseTemplate from "./BaseTemplate";
 import { Link, useParams } from "react-router-dom";
 import LoadingSection from "./LoadingSection";
 import CharacterCard from "./CharacterCard";
+import ErrorSection from "./ErrorSection";
 
 function LocationInfo () {
     const [data, setData] = useState();
     const [characters, setCharacters] = useState();
+    const [error, setError] = useState(false);
     const {id}: any = useParams();
 
     const regex = /\/(\d+)$/;
@@ -30,6 +32,7 @@ function LocationInfo () {
             setCharacters(charactersJson);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -83,7 +86,10 @@ function LocationInfo () {
                         </div>
                 </>
                 :
-                <LoadingSection/>
+                    (error)?
+                        <ErrorSection URL={"/locations/"}/>
+                    :
+                        <LoadingSection/>
             }
         </BaseTemplate>
     );
