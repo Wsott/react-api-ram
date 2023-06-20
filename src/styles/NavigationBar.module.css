@@ -34,7 +34,18 @@
     /* Ancho ajustado automáticamente */
 }
 
-a, h3 {
+/* a, h3 {
     padding: 0px 2rem;
     font-size: x-large;
+} */
+
+.link {
+    padding: 0px 2rem;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-shadow: 0 0 8px rgb(255, 0, 0, 0.25);
+    color: #EB455F;
 }
