@@ -12,6 +12,7 @@
     background-color: var(--color-terciario);
     border-radius: 5px;
     font-size: x-large;
+    user-select: none;
 }
 
 .navigationIndex {
@@ -19,6 +20,7 @@
     font-weight: 900;
     margin: 0px 1rem;
     min-width: 50px;
+    user-select: none;
 }
 
 /* button {

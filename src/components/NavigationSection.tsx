@@ -16,13 +16,13 @@ function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: 
                 (previousEnabled)?
                     <Link to={url + (currentIndex - 1)}>
                         <button className={styles.navigationButton}>
-                            {"<"}
+                            {"<<"}
                         </button>
                     </Link>
                 :
                     <Link to={url + (currentIndex - 1)} className={styles.disabled}>
                         <button className={styles.navigationButton} disabled={true}>
-                            {"<"}
+                            {"<<"}
                         </button>
                     </Link>
 
@@ -35,13 +35,13 @@ function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: 
                 (nextEnabled)?
                     <Link to={url + (currentIndex + 1)}>
                         <button className={styles.navigationButton}>
-                            {">"}
+                            {">>"}
                         </button>
                     </Link>
                 :
                     <Link to={url + (currentIndex + 1)} className={styles.disabled}>
                         <button className={styles.navigationButton} disabled={true}>
-                            {">"}
+                            {">>"}
                         </button>
                     </Link>
             }
