@@ -4,11 +4,18 @@
     overflow: hidden;
 }
 
-.mainSection {
+.mainSection, .mainSectionNoFooter {
     max-width: 100%;
-    max-height: 70%;
     padding: 1rem;
     overflow: auto;
+}
+
+.mainSection {
+    max-height: 70%;
+}
+
+.mainSectionNoFooter {
+    max-height: 85%;
 }
 
 .charactersContainer {

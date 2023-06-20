@@ -52,14 +52,14 @@ function EpisodeInfo () {
     }
 
     return (
-        <BaseTemplate previous={false} index={0} next={false} url={""}>
+        <BaseTemplate requiresFooter={false}>
             {
                 (data && characters)?
                     <>
                         <div className={styles.containerInfo}>
-                            <p><b>Episode: </b>{data.episode}</p>
-                            <p><b>Air date: </b>{data.air_date}</p>
-                            <p><b>Name: </b>{data.name}</p>
+                            <p className={styles.episodTextInfo}><b>Episode: </b>{data.episode}</p>
+                            <p className={styles.episodTextInfo}><b>Air date: </b>{data.air_date}</p>
+                            <p className={styles.episodTextInfo}><b>Name: </b>{data.name}</p>
                         </div>
                         <div className={styles.mainSection}>
                             <div className={styles.titleSection}>

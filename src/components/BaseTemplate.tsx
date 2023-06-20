@@ -24,7 +24,7 @@ function BaseTemplate ( {children, previous, index, next, url, selectedOption, r
     return (
         <div className={stlyes.container}>
             <NavigationBar selectedOption={selectedOption}/>
-            <div className={stlyes.mainSection}>
+            <div className={`${(requiresFooter)? stlyes.mainSection: stlyes.mainSectionNoFooter}`}>
                 {children}
             </div>
             {
