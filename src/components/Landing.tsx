@@ -7,9 +7,9 @@ function Landing () {
         <div className={styles.container}>
             <img className={styles.mainLogo} src={logo} alt={"Rick & Morty"} />
             <div className={styles.linksContainer}>
-                <Link to={"/characters"}><span>Personajes</span></Link>
-                <Link to={"/locations/"}><span>Ubicaciones</span></Link>
-                <Link to={"/episodes/"}><span>Episodios</span></Link>
+                <Link to={"/characters"}><span className={styles.mainLinks}>Personajes</span></Link>
+                <Link to={"/locations/"}><span className={styles.mainLinks}>Ubicaciones</span></Link>
+                <Link to={"/episodes/"}><span className={styles.mainLinks}>Episodios</span></Link>
             </div>
         </div>
     );

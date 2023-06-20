@@ -17,12 +17,13 @@
     align-items: center;
     align-content: center;
     margin-bottom: 5rem;
+    padding: 15px 0px;
 }
 
 .mainLogo {
     width: 50%;
 }
 
-span {
-    padding: 1rem 5rem;
+.mainLinks {
+    padding: 0px 5rem;
 }
