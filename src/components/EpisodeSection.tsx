@@ -4,11 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import stlyes from "../styles/CharacterSection.module.css";
 import EpisodeCard from "./EpisodeCard";
 import LoadingSection from "./LoadingSection";
+import ErrorSection from "./ErrorSection";
 
 function EpisodeSection () {
     const [data, setData] = useState();
     const [next, setNext] = useState(false);
     const [previous, setPrevious] = useState(false);
+    const [error, setError] = useState(false);
     const {index} = useParams();
     const currentIndex: number = Number(index) || 1;
 
@@ -33,6 +35,7 @@ function EpisodeSection () {
             console.log(json.results[0].name);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -50,9 +53,12 @@ function EpisodeSection () {
                             </Link>
                         );
                     })
-
                     :
-                    <LoadingSection />}
+                        (error)?
+                            <ErrorSection URL={"/episodes/"}/>
+                        :
+                            <LoadingSection />
+                    }
             </div>
         </BaseTemplate>
     )

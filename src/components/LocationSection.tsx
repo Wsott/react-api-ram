@@ -5,11 +5,13 @@ import stlyes from "../styles/CharacterSection.module.css";
 import CharacterCard from "./CharacterCard";
 import LoadingSection from "./LoadingSection";
 import LocationCard from "./LocationCard";
+import ErrorSection from "./ErrorSection";
 
 function LocationSection () {
     const [data, setData] = useState();
     const [next, setNext] = useState(false);
     const [previous, setPrevious] = useState(false);
+    const [error, setError] = useState(false);
     const {index} = useParams();
     const currentIndex: number = Number(index) || 1;
 
@@ -33,6 +35,7 @@ function LocationSection () {
             setPrevious(json.info.prev != null);
         }
         catch (error) {
+            setError(true);
             console.log("Error en obtener los datos: " + error);
         }
     }
@@ -51,9 +54,12 @@ function LocationSection () {
                             </Link>
                         );
                     })
-
                     :
-                    <LoadingSection />}
+                        (error)?
+                            <ErrorSection URL={"/locations/"}/>
+                        :
+                            <LoadingSection />
+                    }
             </div>
         </BaseTemplate>
     );

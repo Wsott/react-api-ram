@@ -61,12 +61,12 @@ function CharacterSection () {
                             </Link>
                         );
                     })
-
                     :
-                    (error)?
-                        <ErrorSection/>
-                    :
-                        <LoadingSection />}
+                        (error)?
+                            <ErrorSection URL={"/characters/"}/>
+                        :
+                            <LoadingSection />
+                    }
             </div>
             {/* </div> */}
 
