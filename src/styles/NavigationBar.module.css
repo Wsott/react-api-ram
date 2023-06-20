@@ -49,3 +49,7 @@
     text-shadow: 0 0 8px rgb(255, 0, 0, 0.25);
     color: #EB455F;
 }
+
+.selected {
+    color: #EB455F;
+}

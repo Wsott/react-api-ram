@@ -45,7 +45,12 @@ function CharacterSection () {
     }
 
     return (
-        <BaseTemplate previous={previous} index={currentIndex} next={next} url={"/characters/"} >
+        <BaseTemplate 
+        previous={previous} 
+        index={currentIndex} 
+        next={next} 
+        url={"/characters/"} 
+        selectedOption={"Personajes"} >
             {/* <div className={stlyes.container}> */}
             {/* <NavigationBar></NavigationBar> */}
             {/* <div className={stlyes.mainSection}> */}

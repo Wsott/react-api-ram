@@ -10,6 +10,7 @@ interface ChildrenComponents {
     index: number;
     next: boolean;
     url: string;
+    selectedOption: string;
 }
 
 interface NavigationData {
@@ -18,10 +19,10 @@ interface NavigationData {
     next: boolean;
 }
 
-function BaseTemplate ( {children, previous, index, next, url}: ChildrenComponents) {
+function BaseTemplate ( {children, previous, index, next, url, selectedOption}: ChildrenComponents) {
     return (
         <div className={stlyes.container}>
-            <NavigationBar></NavigationBar>
+            <NavigationBar selectedOption={selectedOption}/>
             <div className={stlyes.mainSection}>
                 {children}
             </div>

@@ -41,7 +41,12 @@ function LocationSection () {
     }
     
     return (
-        <BaseTemplate previous={previous} index={currentIndex} next={next} url={"/locations/"} >
+        <BaseTemplate 
+        previous={previous} 
+        index={currentIndex} 
+        next={next} 
+        url={"/locations/"}
+        selectedOption={"Ubicaciones"}>
             <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {
