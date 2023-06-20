@@ -11,6 +11,7 @@ interface ChildrenComponents {
     next: boolean;
     url: string;
     selectedOption: string;
+    requiresFooter: boolean;
 }
 
 interface NavigationData {
@@ -19,22 +20,28 @@ interface NavigationData {
     next: boolean;
 }
 
-function BaseTemplate ( {children, previous, index, next, url, selectedOption}: ChildrenComponents) {
+function BaseTemplate ( {children, previous, index, next, url, selectedOption, requiresFooter = true}: ChildrenComponents) {
     return (
         <div className={stlyes.container}>
             <NavigationBar selectedOption={selectedOption}/>
             <div className={stlyes.mainSection}>
                 {children}
             </div>
-            <footer className={footerStyle.footerContainer}>
-            <div className={footerStyle.contentContainer}>
-                <NavigationSection
-                    previousEnabled={previous}
-                    currentIndex={index}
-                    nextEnabled={next}
-                    url={url}></NavigationSection>
-            </div>
-        </footer>
+            {
+                (requiresFooter)
+                ?
+                    <footer className={footerStyle.footerContainer}>
+                        <div className={footerStyle.contentContainer}>
+                            <NavigationSection
+                                previousEnabled={previous}
+                                currentIndex={index}
+                                nextEnabled={next}
+                                url={url}></NavigationSection>
+                        </div>
+                    </footer>
+                :
+                    null
+            }
         </div>
     );
 }

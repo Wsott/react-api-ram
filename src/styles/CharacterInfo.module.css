@@ -28,12 +28,17 @@
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
+    border-radius: 10px;
 }
 
-p {
+.characterTextInfo {
     margin: 0.75rem 0px;
 }
 
-a {
+/* p {
+    margin: 0.75rem 0px;
+} */
+
+/* a {
     padding: 0px;
-}
+} */
