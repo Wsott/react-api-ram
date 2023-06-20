@@ -51,12 +51,14 @@ function LocationSection () {
                 {(data) ?
                     data.map((current) => {
                         return (
-                            <Link style={linkStyleInline} to={"/location/" + current.id}>
-                                <LocationCard
-                                    name={current.name}
-                                    type={current.type}
-                                    dimension={current.dimension}></LocationCard>
-                            </Link>
+                            <div className={stlyes.gridItem}>
+                                <Link style={linkStyleInline} to={"/location/" + current.id}>
+                                    <LocationCard
+                                        name={current.name}
+                                        type={current.type}
+                                        dimension={current.dimension}></LocationCard>
+                                </Link>
+                            </div>
                         );
                     })
                     :

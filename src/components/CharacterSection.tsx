@@ -58,12 +58,14 @@ function CharacterSection () {
                 {(data) ?
                     data.map((current) => {
                         return (
-                            <Link style={linkStyleInline} to={"/character/" + current.id}>
-                                <CharacterCard
-                                    image={current.image}
-                                    name={current.name}
-                                    species={current.species}></CharacterCard>
-                            </Link>
+                            <div className={stlyes.gridItem}>
+                                <Link style={linkStyleInline} to={"/character/" + current.id}>
+                                    <CharacterCard
+                                        image={current.image}
+                                        name={current.name}
+                                        species={current.species}></CharacterCard>
+                                </Link>
+                            </div>
                         );
                     })
                     :

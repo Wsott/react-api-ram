@@ -77,12 +77,14 @@ function LocationInfo (/*{name, type, dimension, creationDate}: LocationData*/) 
                                     (characters.length > 0)?
                                         characters.map((current) => {
                                             return (
-                                                <Link to={"/character/" + current.id}>
-                                                    <CharacterCard
-                                                        image={current.image}
-                                                        name={current.name}
-                                                        species={current.species}></CharacterCard>
-                                                </Link>
+                                                <div className={styles.gridItem}>
+                                                    <Link to={"/character/" + current.id}>
+                                                        <CharacterCard
+                                                            image={current.image}
+                                                            name={current.name}
+                                                            species={current.species}></CharacterCard>
+                                                    </Link>
+                                                </div>
                                             );
                                         })
                                     :

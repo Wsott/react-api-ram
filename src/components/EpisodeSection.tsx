@@ -51,11 +51,13 @@ function EpisodeSection () {
                 {(data) ?
                     data.map((current) => {
                         return (
-                            <Link style={linkStyleInline} to={"/episode/" + current.id}>
-                                <EpisodeCard 
-                                    name={current.name} 
-                                    episode={current.episode}></EpisodeCard>
-                            </Link>
+                            <div className={stlyes.gridItem}>
+                                <Link style={linkStyleInline} to={"/episode/" + current.id}>
+                                    <EpisodeCard 
+                                        name={current.name} 
+                                        episode={current.episode}></EpisodeCard>
+                                </Link>
+                            </div>
                         );
                     })
                     :
