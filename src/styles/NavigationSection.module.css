@@ -8,18 +8,31 @@
     pointer-events: none;
 }
 
-button {
+.navigationButton {
     background-color: var(--color-terciario);
-    border-radius: 50%;
+    border-radius: 5px;
+    font-size: x-large;
 }
 
-p {
+.navigationIndex {
+    font-size: xx-large;
+    font-weight: 900;
+    margin: 0px 1rem;
+    min-width: 50px;
+}
+
+/* button {
+    background-color: var(--color-terciario);
+    border-radius: 50%;
+} */
+
+/* p {
     font-size: x-large;
     font-weight: 900;
     margin: 0px 1rem;
-}
+} */
 
-a {
+/* a {
     text-decoration: none;
     padding: 10px;
-}
+} */

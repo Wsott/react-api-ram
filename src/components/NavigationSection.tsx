@@ -14,29 +14,36 @@ function NavigationSection ( {previousEnabled, currentIndex, url, nextEnabled}: 
             {/*  */}
             {
                 (previousEnabled)?
-                    <button>
-                        <Link to={url + (currentIndex - 1)}>{"<"}</Link>
-                    </button>
+                    <Link to={url + (currentIndex - 1)}>
+                        <button className={styles.navigationButton}>
+                            {"<"}
+                        </button>
+                    </Link>
                 :
-                    <button disabled={true}>
-                        <Link to={url + (currentIndex - 1)} className={styles.disabled}>{"<"}</Link>
-                    </button>
+                    <Link to={url + (currentIndex - 1)} className={styles.disabled}>
+                        <button className={styles.navigationButton} disabled={true}>
+                            {"<"}
+                        </button>
+                    </Link>
 
             }
             
-            <p>{currentIndex}</p>
+            <p className={styles.navigationIndex}>{currentIndex}</p>
             {/* <button disabled={!next}>{">"}</button> */}
 
             {
                 (nextEnabled)?
-                    <button>
-                        <Link to={url + (currentIndex + 1)}>{">"}</Link>
-                    </button>
+                    <Link to={url + (currentIndex + 1)}>
+                        <button className={styles.navigationButton}>
+                            {">"}
+                        </button>
+                    </Link>
                 :
-                    <button disabled={true}>
-                        <Link to={url + (currentIndex + 1)} className={styles.disabled}>{">"}</Link>
-                    </button>
-
+                    <Link to={url + (currentIndex + 1)} className={styles.disabled}>
+                        <button className={styles.navigationButton} disabled={true}>
+                            {">"}
+                        </button>
+                    </Link>
             }
 
             

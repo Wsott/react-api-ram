@@ -21,6 +21,10 @@
   --color-terciario: #EB455F;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Firefox */
 * {
   scrollbar-width: thin;
