@@ -3,7 +3,7 @@ import styles from "../styles/EpisodeInfo.module.css";
 import BaseTemplate from "./BaseTemplate";
 import { Link, useParams } from "react-router-dom";
 import LoadingSection from "./LoadingSection";
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "./Characters/CharacterCard";
 import ErrorSection from "./ErrorSection";
 
 function EpisodeInfo () {

@@ -1,8 +1,8 @@
 import LocationInfo from './components/LocationInfo'
-import CharacterInfo from './components/CharacterInfo'
+import CharacterInfo from './components/Characters/CharacterInfo'
 import './styles/App.css'
 import Landing from './components/Landing'
-import CharacterSection from './components/CharacterSection'
+import CharacterSection from './components/Characters/CharacterSection'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LocationSection from './components/LocationSection'
 import EpisodeSection from './components/EpisodeSection'
@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing/>} />
 
-        <Route path='/characters/:index?' element={<CharacterSection/>} />
-        <Route path='/character/:id' element={<CharacterInfo/>} />
+        <Route path='/characters/' element={<CharacterSection/>} />
+        <Route path='/characters/:id?' element={<CharacterInfo/>} />
 
         <Route path='/locations/:index?' element={<LocationSection/>}/>
         <Route path='/location/:id' element={<LocationInfo/>}/>

@@ -18,21 +18,23 @@ function BaseTemplate ( {children, previous, index, next, url, selectedOption, r
     return (
         <div className={stlyes.container}>
             <NavigationBar selectedOption={selectedOption}/>
-            <div className={`${(requiresFooter)? stlyes.mainSection: stlyes.mainSectionNoFooter}`}>
+            {children}
+            {/* <div className={`${(requiresFooter)? stlyes.mainSection: stlyes.mainSectionNoFooter}`}>
                 {children}
-            </div>
+            </div> */}
             {
                 (requiresFooter)
                 ?
-                    <footer className={footerStyle.footerContainer}>
-                        <div className={footerStyle.contentContainer}>
-                            <NavigationSection
-                                previousEnabled={previous}
-                                currentIndex={index}
-                                nextEnabled={next}
-                                url={url}></NavigationSection>
-                        </div>
-                    </footer>
+                null
+                    // <footer className={footerStyle.footerContainer}>
+                    //     <div className={footerStyle.contentContainer}>
+                    //         <NavigationSection
+                    //             previousEnabled={previous}
+                    //             currentIndex={index}
+                    //             nextEnabled={next}
+                    //             url={url}></NavigationSection>
+                    //     </div>
+                    // </footer>
                 :
                     null
             }

@@ -22,3 +22,15 @@ function Footer ( {previous, index, next}: NavigationData) {
 }
 
 export default Footer;
+
+/*
+<footer className={footerStyle.footerContainer}>
+    <div className={footerStyle.contentContainer}>
+        <div className={styles.navigationContainer}>
+            <button className={styles.navigationButton}>{"<<"}</button>
+            <p className={styles.navigationIndex}>{currentIndex}</p>
+            <button className={styles.navigationButton}>{">>"}</button>
+        </div>
+    </div>
+</footer>
+*/

@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
 import stlyes from "../styles/CharacterSection.module.css";
-import CharacterCard from "./CharacterCard";
-import { Link, useParams } from "react-router-dom";
-import LoadingSection from "./LoadingSection";
-import BaseTemplate from "./BaseTemplate";
+import footerStyle from "../styles/Footer.module.css";
+
 import ErrorSection from "./ErrorSection";
+import LoadingSection from "./LoadingSection";
+import { Link } from "react-router-dom";
+import CharacterCard from "./Characters/CharacterCard";
+import NavigationSection from "./NavigationSection";
+import baseStyle from "../styles/CharacterSection.module.css";
 
 
-function CharacterSection () {
+import navigationStyles from "../styles/NavigationSection.module.css";
+
+function CardDisplay () {
     const [data, setData] = useState();
-    const [next, setNext] = useState(false);
-    const [previous, setPrevious] = useState(false);
     const [error, setError] = useState(false);
-    const {index} = useParams();
-    const currentIndex: number = Number(index) || 1;
+    const [index, setIndex] = useState(1);
+    const [next, setNext] = useState(true);
+    const [previous, setPrevious] = useState(true);
 
     const linkStyleInline = {
         padding: "0px"
     }
 
-    useEffect(() => {
-        loadData(currentIndex);
-    }, [currentIndex])
+    useEffect (() => {
+        //alert(index);
+        loadData(index);
+    }, [index]);
 
     async function loadData (index: number) {
         const url = "https://rickandmortyapi.com/api/character?page=" + index;
@@ -40,18 +45,13 @@ function CharacterSection () {
     }
 
     return (
-        <BaseTemplate 
-        previous={previous} 
-        index={currentIndex} 
-        next={next} 
-        url={"/characters/"} 
-        selectedOption={"Personajes"} >
-            <div className={stlyes.charactersContainer}>
+        <>
+            <div className={`${baseStyle.mainSection} ${stlyes.charactersContainer}`}>
                 {(data) ?
                     data.map((current) => {
                         return (
                             <div className={stlyes.gridItem}>
-                                <Link style={linkStyleInline} to={"/character/" + current.id}>
+                                <Link style={linkStyleInline} to={"/characters/" + current.id}>
                                     <CharacterCard
                                         image={current.image}
                                         name={current.name}
@@ -67,8 +67,17 @@ function CharacterSection () {
                             <LoadingSection />
                     }
             </div>
-        </BaseTemplate>
+            <footer className={footerStyle.footerContainer}>
+                <div className={footerStyle.contentContainer}>
+                    <div className={navigationStyles.navigationContainer}>
+                        <button disabled={!previous} className={navigationStyles.navigationButton} onClick={() => setIndex(index - 1)}>{"<<"}</button>
+                        <p className={navigationStyles.navigationIndex}>{index}</p>
+                        <button disabled={!next} className={navigationStyles.navigationButton} onClick={() => setIndex(index + 1)}>{">>"}</button>
+                    </div>
+                </div>
+            </footer>
+        </>
     );
 }
 
-export default CharacterSection;
+export default CardDisplay;
