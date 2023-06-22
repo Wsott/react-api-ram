@@ -1,4 +1,4 @@
-import styles from "../styles/LocationCard.module.css";
+import styles from "../../styles/LocationCard.module.css";
 
 interface EpisodeData {
     name: string;

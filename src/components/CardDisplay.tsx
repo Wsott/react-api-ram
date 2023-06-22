@@ -11,8 +11,15 @@ import baseStyle from "../styles/CharacterSection.module.css";
 
 
 import navigationStyles from "../styles/NavigationSection.module.css";
+import LocationCard from "./Locations/LocationCard";
+import EpisodeCard from "./Episodes/EpisodeCard";
 
-function CardDisplay () {
+interface DisplayData {
+    URL: string;
+    cardType: string;
+}
+
+function CardDisplay ( {URL, cardType}: DisplayData ) {
     const [data, setData] = useState();
     const [error, setError] = useState(false);
     const [index, setIndex] = useState(1);
@@ -29,7 +36,7 @@ function CardDisplay () {
     }, [index]);
 
     async function loadData (index: number) {
-        const url = "https://rickandmortyapi.com/api/character?page=" + index;
+        const url = URL + index; //"https://rickandmortyapi.com/api/character?page=" + index;
         try {
             setData(null);
             const response = await fetch(url);
@@ -51,12 +58,32 @@ function CardDisplay () {
                     data.map((current) => {
                         return (
                             <div className={stlyes.gridItem}>
-                                <Link style={linkStyleInline} to={"/characters/" + current.id}>
-                                    <CharacterCard
-                                        image={current.image}
-                                        name={current.name}
-                                        species={current.species}></CharacterCard>
-                                </Link>
+                                
+                                {
+                                    (cardType == "Personaje")?
+                                        <Link style={linkStyleInline} to={"/characters/" + current.id}>
+                                            <CharacterCard
+                                            image={current.image}
+                                            name={current.name}
+                                            species={current.species}></CharacterCard>
+                                        </Link>
+                                    :
+                                    (cardType == "Locations")?
+                                        <Link style={linkStyleInline} to={"/locations/" + current.id}>
+                                            <LocationCard
+                                                name={current.name}
+                                                type={current.type}
+                                                dimension={current.dimension}></LocationCard>
+                                        </Link>
+                                    :
+                                        <Link style={linkStyleInline} to={"/episodes/" + current.id}>
+                                            <EpisodeCard 
+                                                name={current.name} 
+                                                episode={current.episode}></EpisodeCard>
+                                        </Link>
+                                }
+
+                                
                             </div>
                         );
                     })

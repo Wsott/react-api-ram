@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import BaseTemplate from "./BaseTemplate";
-import stlyes from "../styles/CharacterSection.module.css";
-import LoadingSection from "./LoadingSection";
+import BaseTemplate from "../BaseTemplate";
+import stlyes from "../../styles/CharacterSection.module.css";
+import LoadingSection from "../LoadingSection";
 import LocationCard from "./LocationCard";
-import ErrorSection from "./ErrorSection";
+import ErrorSection from "../ErrorSection";
+import CardDisplay from "../CardDisplay";
 
 function LocationSection () {
     const [data, setData] = useState();
@@ -45,7 +46,8 @@ function LocationSection () {
         next={next} 
         url={"/locations/"}
         selectedOption={"Ubicaciones"}>
-            <div className={stlyes.charactersContainer}>
+            <CardDisplay URL={"https://rickandmortyapi.com/api/location?page="} cardType={"Locations"} />
+            {/* <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {
                         return (
@@ -65,7 +67,7 @@ function LocationSection () {
                         :
                             <LoadingSection />
                     }
-            </div>
+            </div> */}
         </BaseTemplate>
     );
 }

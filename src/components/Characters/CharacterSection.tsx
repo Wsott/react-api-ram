@@ -47,7 +47,7 @@ function CharacterSection () {
         next={next} 
         url={"/characters/"} 
         selectedOption={"Personajes"} >
-            <CardDisplay></CardDisplay>
+            <CardDisplay URL={"https://rickandmortyapi.com/api/character?page="} cardType={"Personaje"} />
             {/* <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {

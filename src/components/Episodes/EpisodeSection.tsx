@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import BaseTemplate from "./BaseTemplate";
+import BaseTemplate from "../BaseTemplate";
 import { Link, useParams } from "react-router-dom";
 import stlyes from "../styles/CharacterSection.module.css";
 import EpisodeCard from "./EpisodeCard";
-import LoadingSection from "./LoadingSection";
-import ErrorSection from "./ErrorSection";
+import LoadingSection from "../LoadingSection";
+import ErrorSection from "../ErrorSection";
+import CardDisplay from "../CardDisplay";
 
 function EpisodeSection () {
     const [data, setData] = useState();
@@ -47,7 +48,8 @@ function EpisodeSection () {
         next={next} 
         url={"/episodes/"}
         selectedOption={"Episodios"}>
-            <div className={stlyes.charactersContainer}>
+            <CardDisplay URL={"https://rickandmortyapi.com/api/episode?page="} cardType={"Episodio"} />
+            {/* <div className={stlyes.charactersContainer}>
                 {(data) ?
                     data.map((current) => {
                         return (
@@ -66,7 +68,7 @@ function EpisodeSection () {
                         :
                             <LoadingSection />
                     }
-            </div>
+            </div> */}
         </BaseTemplate>
     )
 }

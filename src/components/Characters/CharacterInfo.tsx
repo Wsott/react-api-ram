@@ -3,7 +3,7 @@ import styles from "../../styles/CharacterInfo.module.css";
 import { useState, useEffect } from "react";
 import LoadingSection from "../LoadingSection";
 import BaseTemplate from "../BaseTemplate";
-import EpisodeCard from "../EpisodeCard";
+import EpisodeCard from "../Episodes/EpisodeCard";
 import ErrorSection from "../ErrorSection";
 import baseStyle from "../../styles/CharacterSection.module.css";
 import cardDisplayStyle from "../../styles/CharacterSection.module.css";
@@ -57,9 +57,9 @@ function CharacterInfo () {
     }
 
     return (
-        <BaseTemplate requiresFooter={false}>
+        <BaseTemplate>
                 {
-                    <div className={`${baseStyle.mainSection}`}>
+                    <div className={`${baseStyle.mainSectionNoFooter}`}>
                         {
                         (data && episodes)?
                             <>
@@ -76,7 +76,7 @@ function CharacterInfo () {
                                         <p className={styles.characterTextInfo}><b>Genero: </b>{data.gender}</p>
                                         <p className={styles.characterTextInfo}>
                                             <b>Origen: </b>
-                                                <Link to={"/location/" + location}>{data.origin.name}</Link>
+                                                <Link to={"/locations/" + location}>{data.origin.name}</Link>
                                         </p>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@ function CharacterInfo () {
                                             episodes.map((current) => {
                                                 return (
                                                     <div className={styles.gridItem}>
-                                                        <Link to={"/episode/" + current.id}>
+                                                        <Link to={"/episodes/" + current.id}>
                                                             <EpisodeCard 
                                                             name={current.name} 
                                                             episode={current.episode}></EpisodeCard>
